@@ -5,7 +5,7 @@ session_start();
 
 $errores = [];
 
-// ¿Se envió el formulario?
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre     = trim($_POST['nombre']     ?? '');
@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasena = $_POST['contrasena']      ?? '';
     $confirmar  = $_POST['confirmar']       ?? '';
 
-    // Validaciones
     if ($nombre === '') {
         $errores['nombre'] = 'El nombre no puede estar vacío.';
     }
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores['confirmar'] = 'Las contraseñas no coinciden.';
     }
 
-    // Si no hay errores → guardar en sesión
     if (empty($errores)) {
         $_SESSION['nombre'] = $nombre;
         $_SESSION['gmail']  = $gmail;
@@ -44,20 +42,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-  <!-- IMAGEN -->
+
   <div class="imagen-lado">
     <span></span>
     <p>STAGE</p>
   </div>
 
-  <!-- FORMULARIO -->
+
   <div class="formulario-lado">
     <div class="caja-form">
 
       <h2>Crear cuenta</h2>
       <span class="etiqueta">🔵 stage — sesión PHP</span>
 
-      <!-- Si ya hay sesión activa, mostrar aviso -->
+
       <?php if (isset($_SESSION['nombre'])): ?>
         <div class="sesion-activa">
            Sesión activa: <strong><?= htmlspecialchars($_SESSION['nombre']) ?></strong>
@@ -66,7 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <form method="POST" action="">
 
-        <!-- CAMPO 1: Nombre -->
         <label for="nombre">Nombre completo</label>
         <input
           type="text" id="nombre" name="nombre"
@@ -78,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span class="msg-error">⚠ <?= $errores['nombre'] ?></span>
         <?php endif; ?>
 
-        <!-- CAMPO 2: Gmail -->
+
         <label for="gmail">Gmail</label>
         <input
           type="email" id="gmail" name="gmail"
@@ -90,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span class="msg-error">⚠ <?= $errores['gmail'] ?></span>
         <?php endif; ?>
 
-        <!-- CAMPO 3: Contraseña -->
+
         <label for="contrasena">Contraseña</label>
         <input
           type="password" id="contrasena" name="contrasena"
@@ -101,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span class="msg-error">⚠ <?= $errores['contrasena'] ?></span>
         <?php endif; ?>
 
-        <!-- CAMPO 4: Confirmar contraseña -->
+
         <label for="confirmar">Confirmar contraseña</label>
         <input
           type="password" id="confirmar" name="confirmar"
@@ -116,7 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       </form>
 
-      <!-- DATOS MOSTRADOS SI HAY SESIÓN -->
       <?php if (isset($_SESSION['nombre'])): ?>
         <div class="datos-ok">
           <h3>✅ Sesión iniciada</h3>
@@ -125,9 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <p><strong>Contraseña:</strong> ••••••</p>
           <p><strong>Hora de registro:</strong> <?= $_SESSION['hora'] ?></p>
           <p style="margin-top:8px;font-size:12px;color:#888;">
-            💾 Guardado en <code>$_SESSION</code> de PHP
+             Guardado en <code>$_SESSION</code> de PHP
           </p>
-          <!-- Botón cerrar sesión → va a logout.php -->
+
           <form method="POST" action="logout.php">
             <button class="btn-cerrar" type="submit"> Cerrar sesión</button>
           </form>
