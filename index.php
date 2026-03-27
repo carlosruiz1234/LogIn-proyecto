@@ -1,11 +1,10 @@
 <?php
-// ── RAMA DEVELOP: sin sesiones, sin base de datos ──
-// Las validaciones se hacen en validaciones.php y se pasan por GET
+
 
 $errores = [];
 $form    = [];
 
-// Recibir errores y datos desde validaciones.php via GET
+
 if (!empty($_GET)) {
     if (isset($_GET['err_nombre']))    $errores['nombre']    = htmlspecialchars($_GET['err_nombre']);
     if (isset($_GET['err_gmail']))     $errores['gmail']     = htmlspecialchars($_GET['err_gmail']);
@@ -46,10 +45,10 @@ if (!empty($_GET)) {
         </div>
       <?php else: ?>
 
-        <!-- FORMULARIO -->
+
         <form method="POST" action="validaciones.php">
 
-          <!-- NOMBRE -->
+
           <label for="nombre">Nombre completo</label>
           <input
             type="text" id="nombre" name="nombre"
@@ -61,7 +60,6 @@ if (!empty($_GET)) {
             <span class="msg-error">⚠ <?= $errores['nombre'] ?></span>
           <?php endif; ?>
 
-          <!-- GMAIL -->
           <label for="gmail">Gmail</label>
           <input
             type="email" id="gmail" name="gmail"
@@ -73,7 +71,7 @@ if (!empty($_GET)) {
             <span class="msg-error">⚠ <?= $errores['gmail'] ?></span>
           <?php endif; ?>
 
-          <!-- CONTRASEÑA -->
+
           <label for="contrasena">Contraseña</label>
           <input
             type="password" id="contrasena" name="contrasena"
@@ -84,7 +82,7 @@ if (!empty($_GET)) {
             <span class="msg-error">⚠ <?= $errores['contrasena'] ?></span>
           <?php endif; ?>
 
-          <!-- CONFIRMAR -->
+
           <label for="confirmar">Confirmar contraseña</label>
           <input
             type="password" id="confirmar" name="confirmar"

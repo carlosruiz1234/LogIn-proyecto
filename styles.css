@@ -60,7 +60,7 @@ button:hover { background: #1a0533; }
 .btn-cerrar { background: #e74c3c; margin-top: 10px; }
 .btn-cerrar:hover { background: #c0392b; }
 
-/* Tabla de usuarios */
+
 
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th { background: #4a1169; color: white; padding: 8px 10px; text-align: left; }
