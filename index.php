@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php'; // conexión a MySQL
+require 'db.php'; 
 
 
 $errores = $_SESSION['errores'] ?? [];
@@ -63,7 +63,7 @@ unset($_SESSION['errores'], $_SESSION['form']);
           <span class="msg-error"> <?= $errores['gmail'] ?></span>
         <?php endif; ?>
 
-        <!-- CONTRASEÑA -->
+
         <label for="contrasena">Contraseña</label>
         <input
           type="password" id="contrasena" name="contrasena"
@@ -74,7 +74,6 @@ unset($_SESSION['errores'], $_SESSION['form']);
           <span class="msg-error"> <?= $errores['contrasena'] ?></span>
         <?php endif; ?>
 
-        <!-- CONFIRMAR -->
         <label for="confirmar">Confirmar contraseña</label>
         <input
           type="password" id="confirmar" name="confirmar"

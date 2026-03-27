@@ -16,7 +16,7 @@ $gmail      = trim($_POST['gmail']      ?? '');
 $contrasena = $_POST['contrasena']      ?? '';
 $confirmar  = $_POST['confirmar']       ?? '';
 
-// ── Validaciones ──
+
 if ($nombre === '') {
     $errores['nombre'] = 'El nombre no puede estar vacío.';
 }
